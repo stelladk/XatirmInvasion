@@ -14,6 +14,7 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float positionPitchFactor = -4f;
     [SerializeField] float controlPitchFactor = -10f;
     [SerializeField] float positionYawFactor = 4f;
+    [SerializeField] float controlRollFactor = -15f;
 
 
     PlayerInput playerInput;
@@ -66,7 +67,7 @@ public class SpaceshipController : MonoBehaviour
 
         float pitch = positionPitch + controlPitch;
         float yaw = transform.localPosition.x * positionYawFactor;
-        float roll = 0f;
+        float roll = xThrow * controlRollFactor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }

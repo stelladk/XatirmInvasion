@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042720408314425160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: -14}
+  m_LocalPosition: {x: 0, y: 2.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1042720408879217932}
@@ -200,6 +200,7 @@ MonoBehaviour:
   positionPitchFactor: -4
   controlPitchFactor: -10
   positionYawFactor: 4
+  controlRollFactor: -15
 --- !u!1 &1042720408879217933
 GameObject:
   m_ObjectHideFlags: 0
