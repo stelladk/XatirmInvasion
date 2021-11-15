@@ -5,9 +5,15 @@ using UnityEngine.InputSystem;
 
 public class SpaceshipController : MonoBehaviour
 {
+    //Movement Fields
     [SerializeField] float moveSpeed = 25f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 3f;
+
+    //Rotation Fields
+    [SerializeField] float positionPitchFactor = -4f;
+    [SerializeField] float controlPitchFactor = -10f;
+
 
     PlayerInput playerInput;
 
@@ -38,9 +44,11 @@ public class SpaceshipController : MonoBehaviour
     void Update()
     {
         handleMovement();
+        handleRotation();
     }
 
-    void handleMovement(){
+    void handleMovement()
+    {
         float newXPos = transform.localPosition.x + xThrow * Time.deltaTime * moveSpeed;
         float newYPos = transform.localPosition.y + yThrow * Time.deltaTime * moveSpeed;
 
@@ -48,6 +56,18 @@ public class SpaceshipController : MonoBehaviour
         newYPos = Mathf.Clamp(newYPos, -yRange, yRange);
 
         transform.localPosition = new Vector3(newXPos, newYPos, transform.localPosition.z);
+    }
+
+    void handleRotation()
+    {
+        float positionPitch = transform.localPosition.y * positionPitchFactor;
+        float controlPitch = yThrow * controlPitchFactor;
+
+        float pitch = positionPitch + controlPitch;
+        float yaw = 0f;
+        float roll = 0f;
+
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
     void OnMovementInput(InputAction.CallbackContext context){
