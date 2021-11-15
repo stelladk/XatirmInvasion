@@ -602,6 +602,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 2145808915232351715, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396326260640243239, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396326260640243239, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
 --- !u!1001 &7884477149528008645
