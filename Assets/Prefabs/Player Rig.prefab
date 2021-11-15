@@ -198,7 +198,7 @@ MonoBehaviour:
   xRange: 7
   yRange: 3
   positionPitchFactor: -4
-  controlPitchFactor: -10
+  controlPitchFactor: -8
   positionYawFactor: 4
   controlRollFactor: -15
 --- !u!1 &1042720408879217933
