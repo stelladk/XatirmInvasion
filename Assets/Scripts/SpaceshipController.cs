@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class SpaceshipController : MonoBehaviour
 {
+    //Firing Lasers Array
+    [SerializeField] GameObject[] lasers;
+
     //Movement Fields
     [SerializeField] float moveSpeed = 25f;
     [SerializeField] float xRange = 5f;
@@ -21,6 +24,7 @@ public class SpaceshipController : MonoBehaviour
 
     float xThrow;
     float yThrow;
+    bool isFiringPressed, isFiring = false;
 
 
 
@@ -31,6 +35,8 @@ public class SpaceshipController : MonoBehaviour
         playerInput.Controls.Movement.started += OnMovementInput;
         playerInput.Controls.Movement.canceled += OnMovementInput;
         playerInput.Controls.Movement.performed += OnMovementInput;
+        playerInput.Controls.Firing.started += OnFiringInput;
+        playerInput.Controls.Firing.canceled += OnFiringInput;
     }
 
     void OnEnable()
@@ -47,6 +53,7 @@ public class SpaceshipController : MonoBehaviour
     {
         handleMovement();
         handleRotation();
+        handleFiring();
     }
 
     void handleMovement()
@@ -72,10 +79,35 @@ public class SpaceshipController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    void OnMovementInput(InputAction.CallbackContext context){
+    void handleFiring()
+    {
+        if(isFiringPressed && !isFiring){
+            isFiring = true;
+            toggleLasers(true);
+        }else if(!isFiringPressed && isFiring){
+            isFiring = false;
+            toggleLasers(false);
+        }
+    }
+
+    void toggleLasers(bool enabled)
+    {
+        foreach (GameObject laser in lasers){
+            var emmissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emmissionModule.enabled = enabled;
+        }
+    }
+
+    void OnMovementInput(InputAction.CallbackContext context)
+    {
         Vector2 currentMovementInput = context.ReadValue<Vector2>();
         xThrow = currentMovementInput.x;
         yThrow = currentMovementInput.y;
+    }
+
+    void OnFiringInput(InputAction.CallbackContext context)
+    {
+        isFiringPressed = context.ReadValueAsButton();
     }
 
 }

@@ -25,6 +25,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Firing"",
+                    ""type"": ""Button"",
+                    ""id"": ""553a0b7e-3cb2-4cf1-8208-e8cfdd8661c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -148,6 +156,28 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9482b016-aebe-4d5e-8fae-1cc517160ad7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Firing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e6b3093-63d7-4b09-a9e3-952b4904ec2d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Firing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -157,6 +187,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         // Controls
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
+        m_Controls_Firing = m_Controls.FindAction("Firing", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,11 +238,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Controls;
     private IControlsActions m_ControlsActionsCallbackInterface;
     private readonly InputAction m_Controls_Movement;
+    private readonly InputAction m_Controls_Firing;
     public struct ControlsActions
     {
         private @PlayerInput m_Wrapper;
         public ControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Controls_Movement;
+        public InputAction @Firing => m_Wrapper.m_Controls_Firing;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -224,6 +257,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
+                @Firing.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
+                @Firing.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
+                @Firing.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -231,6 +267,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Firing.started += instance.OnFiring;
+                @Firing.performed += instance.OnFiring;
+                @Firing.canceled += instance.OnFiring;
             }
         }
     }
@@ -238,5 +277,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     public interface IControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnFiring(InputAction.CallbackContext context);
     }
 }
