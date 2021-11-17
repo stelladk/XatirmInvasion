@@ -6,17 +6,30 @@ using UnityEngine.InputSystem;
 public class SpaceshipController : MonoBehaviour
 {
     //Firing Lasers Array
-    [SerializeField] GameObject[] lasers;
+    [Tooltip("Firing lasers list")] [SerializeField] GameObject[] lasers;
 
     //Movement Fields
+    [Header("Movement settings")]
+    
+    [Tooltip("How fast ship moves up and down upon player input")]
     [SerializeField] float moveSpeed = 25f;
+    [Tooltip("How far the ship can move in the X axis")]
     [SerializeField] float xRange = 5f;
+    [Tooltip("How far the ship can move in the Y axis")]
     [SerializeField] float yRange = 3f;
 
     //Rotation Fields
+    [Header("Screen position based tuning")]
+    [Tooltip("Rotation on the X axis based on player position")]
     [SerializeField] float positionPitchFactor = -4f;
-    [SerializeField] float controlPitchFactor = -10f;
+    [Tooltip("Rotation on the Y axis based on player position")]
     [SerializeField] float positionYawFactor = 4f;
+
+
+    [Header("Player input based tuning")]
+    [Tooltip("Rotation on the X axis based on player input")]
+    [SerializeField] float controlPitchFactor = -10f;
+    [Tooltip("Rotation on the Z axis based on player input")]
     [SerializeField] float controlRollFactor = -15f;
 
 
