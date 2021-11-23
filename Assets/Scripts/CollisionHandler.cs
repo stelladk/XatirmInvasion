@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {   
+    [Tooltip("Explosion particle system effect")]
+    [SerializeField] ParticleSystem explosionVFX;
+    [Tooltip("Delay of scene reload after crash")]
     [SerializeField] float loadDelay = 1f;
 
     SpaceshipController movement;
@@ -15,6 +18,13 @@ public class CollisionHandler : MonoBehaviour
     {
         movement = GetComponent<SpaceshipController>();
     }
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if(isTransitioning) return;
+    //     Debug.Log($"{this.name} collided with {collision.gameObject.name}");
+    //     crashSequence();
+    // }
 
     void OnTriggerEnter(Collider collider)
     {
@@ -28,6 +38,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         Invoke("reloadScene", loadDelay);
         movement.enabled = false;
+        explosionVFX.Play();
     }
 
     void reloadScene()
