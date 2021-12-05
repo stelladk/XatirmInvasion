@@ -351,7 +351,7 @@ MonoBehaviour:
   lasers:
   - {fileID: 1639658019146493672}
   - {fileID: 5900793087989944034}
-  moveSpeed: 25
+  moveSpeed: 15
   xRange: 7
   yRange: 3
   positionPitchFactor: -4
