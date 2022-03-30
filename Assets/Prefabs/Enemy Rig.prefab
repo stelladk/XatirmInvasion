@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 67.2, y: 32.9, z: 100.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3283582258327484871}
   m_Father: {fileID: 0}
@@ -61,6 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4089482dc4e5efe4ea2653f0dff8e73f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionVFX: {fileID: 0}
+  hitVFX: {fileID: 4698142538360160207, guid: bbceed27ba7404096a6529907b01db62, type: 3}
+  parent: {fileID: 0}
+  points: 10
+  health: 2
 --- !u!1001 &3278900064067315699
 PrefabInstance:
   m_ObjectHideFlags: 0
