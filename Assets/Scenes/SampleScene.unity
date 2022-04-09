@@ -618,6 +618,7 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - d67d9ef3ca3f84cffa2a74749290e269: {fileID: 970597598}
+    - 681368b9b32e747e690940ec97758fa7: {fileID: 2127184178}
     - af9317dc5ec5a45f2bdf3d50c545ac72: {fileID: 650096853}
     - 7e0903b7e3b924f3c816b922d3b2bd11: {fileID: 1271998437}
     - cf210daf39f3f4f72b8eaa4a5b33ead9: {fileID: 184963571}
@@ -638,6 +639,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2127184178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7959830537939474553, guid: 96c957c07ac9ff842b6b91500e43b5ce, type: 3}
+  m_PrefabInstance: {fileID: 3800879198037190761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1042720408702845497
 PrefabInstance:
   m_ObjectHideFlags: 0
