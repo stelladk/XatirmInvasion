@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   speechText: Mayday! Mayday!
+  pauseGame: 0
   sound: {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   volume: 1
 --- !u!114 &-5212766836092412128
@@ -4259,6 +4260,7 @@ MonoBehaviour:
   m_Name: DialogueAsset(Clone)
   m_EditorClassIdentifier: 
   speechText: Mayday! Mayday!
+  pauseGame: 0
   sound: {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   volume: 1
 --- !u!114 &6093092052207783560
@@ -4300,10 +4302,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.5166666666666666
+    m_Start: 0.05
     m_ClipIn: 0
     m_Asset: {fileID: 8823404953751598400}
-    m_Duration: 3.333333333333333
+    m_Duration: 2.3215863430251678
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6326306379959878621}
     m_EaseInDuration: 0
@@ -4536,6 +4538,7 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   speechText: General! You are finally awake!
+  pauseGame: 1
   sound: {fileID: 8300000, guid: 60c63e0a202914f798a610dd2062302a, type: 3}
   volume: 1
 --- !u!74 &9108920047285987821

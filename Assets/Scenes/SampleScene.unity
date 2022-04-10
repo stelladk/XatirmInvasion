@@ -591,6 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1674422045}
   - component: {fileID: 1674422044}
+  - component: {fileID: 1674422046}
   m_Layer: 0
   m_Name: MasterTimeline
   m_TagString: Untagged
@@ -649,6 +650,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1674422046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674422043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171d231ace3174efd93c928b09e85be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMode: 0
 --- !u!114 &1979332661 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7299585754628185958, guid: 96c957c07ac9ff842b6b91500e43b5ce, type: 3}
@@ -839,7 +853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203789618685522240, guid: 96c957c07ac9ff842b6b91500e43b5ce, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856770947851504114, guid: 96c957c07ac9ff842b6b91500e43b5ce, type: 3}
       propertyPath: m_IsActive

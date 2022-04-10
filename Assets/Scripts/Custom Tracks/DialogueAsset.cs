@@ -11,6 +11,7 @@ public class DialogueAsset : PlayableAsset
 {
     [Header("Dialogue")]
     [SerializeField][TextArea] string speechText = "";
+    [SerializeField] bool pauseGame = false;
 
     [Header("Audio")]
     [SerializeField] AudioClip sound;
@@ -24,6 +25,7 @@ public class DialogueAsset : PlayableAsset
         dialogueBehaviour.speechText = speechText;
         dialogueBehaviour.sound = sound;
         dialogueBehaviour.volume = volume;
+        dialogueBehaviour.pauseGame = pauseGame;
 
         return playable;
     }
