@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 3543929348572137904}
   - component: {fileID: 468738720715392533}
   - component: {fileID: 2406536472638698207}
+  - component: {fileID: -2768911141043550350}
   - component: {fileID: 7171102862548236137}
   m_Layer: 0
   m_Name: Destroyer
@@ -347,6 +348,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-2768911141043550350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207840189924053770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.271937, y: 2.7247384, z: 12.217749}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7171102862548236137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +375,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 6825655453322904895, guid: 66c492e94918c494bbdf77c488e5f69b, type: 3}
   hitVFX: {fileID: 4698142538360160207, guid: bbceed27ba7404096a6529907b01db62, type: 3}
-  parent: {fileID: 0}
   points: 10
   health: 20

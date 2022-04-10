@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 1612083974125860590}
   - component: {fileID: 1601221833399826892}
   - component: {fileID: 1593538368734649336}
+  - component: {fileID: 3758205822579360264}
   - component: {fileID: 8029314068499095206}
   m_Layer: 0
   m_Name: Viper
@@ -438,6 +439,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3758205822579360264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606604323481833644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.865558, y: 4.241986, z: 11.309124}
+  m_Center: {x: 0.00000047683716, y: -0.000006198883, z: -0.0000011920929}
 --- !u!114 &8029314068499095206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +466,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 6825655453322904895, guid: 66c492e94918c494bbdf77c488e5f69b, type: 3}
   hitVFX: {fileID: 4698142538360160207, guid: bbceed27ba7404096a6529907b01db62, type: 3}
-  parent: {fileID: 0}
   points: 30
   health: 2

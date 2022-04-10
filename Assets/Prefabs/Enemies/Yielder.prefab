@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 35777431161682342}
   - component: {fileID: 2150023647441334}
   - component: {fileID: 9712316277870680}
+  - component: {fileID: -5280267447804817941}
   - component: {fileID: 3049543330850583523}
   m_Layer: 0
   m_Name: Yielder
@@ -175,6 +176,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-5280267447804817941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32983336884437028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.945585, y: 1.4957151, z: 13.117714}
+  m_Center: {x: 0, y: -0.000007659197, z: 0}
 --- !u!114 &3049543330850583523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 6825655453322904895, guid: 66c492e94918c494bbdf77c488e5f69b, type: 3}
   hitVFX: {fileID: 4698142538360160207, guid: bbceed27ba7404096a6529907b01db62, type: 3}
-  parent: {fileID: 0}
   points: 20
   health: 10
 --- !u!1 &33030559242959930
