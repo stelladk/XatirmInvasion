@@ -24,15 +24,28 @@ public class TimelineManager : MonoBehaviour
         }
     }
 
-    public void PauseTimeline(PlayableDirector director, DialoguePanel panel)
+    void Update()
+    {
+        checkDialogueResume();
+    }
+
+    void checkDialogueResume()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            resumeTimeline();
+        }
+    }
+
+    public void pauseTimeline(PlayableDirector director, DialoguePanel panel)
 	{
 		this.panel = panel;
         this.director = director;
 		this.director.playableGraph.GetRootPlayable(0).SetSpeed(0d);
-		gameMode = GameMode.Dialogue; //InputManager will be waiting for a spacebar to resume
+		gameMode = GameMode.Dialogue; 
 	}
 
-    public void ResumeTimeline()
+    public void resumeTimeline()
 	{
 		director.playableGraph.GetRootPlayable(0).SetSpeed(1d);
         panel.endDialogue();

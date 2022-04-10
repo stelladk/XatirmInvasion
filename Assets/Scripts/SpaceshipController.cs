@@ -67,7 +67,6 @@ public class SpaceshipController : MonoBehaviour
         handleMovement();
         handleRotation();
         handleFiring();
-        resumeTimeline();
     }
 
     void handleMovement()
@@ -109,15 +108,6 @@ public class SpaceshipController : MonoBehaviour
         foreach (GameObject laser in lasers){
             var emmissionModule = laser.GetComponent<ParticleSystem>().emission;
             emmissionModule.enabled = enabled;
-        }
-    }
-
-    // TODO: Move function elsewhere
-    void resumeTimeline()
-    {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            TimelineManager.Instance.ResumeTimeline();
         }
     }
 

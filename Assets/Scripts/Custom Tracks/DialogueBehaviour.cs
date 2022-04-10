@@ -29,7 +29,7 @@ public class DialogueBehaviour : PlayableBehaviour
             if(Application.isPlaying && pauseGame){
                 pauseScheduled = true;
             }
-            pauseTimeline();
+            pauseDialogue();
         }
     }
 
@@ -44,25 +44,19 @@ public class DialogueBehaviour : PlayableBehaviour
     }
     public override void OnBehaviourPause(Playable playable, FrameData info)
     {
-        pauseTimeline();
+        pauseDialogue();
+        if(panel != null) panel.endDialogue();
     }
 
-    // void resumeTimeline()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.Return))
-    //     {
-    //         TimelineManager.Instance.ResumeTimeline();
-    //     }
-    // }
-
-    void pauseTimeline(){
+    void pauseDialogue(){
         if(panel != null) {
             if(pauseScheduled){
                 pauseScheduled = false;
-                TimelineManager.Instance.PauseTimeline(director, panel);
-            }else{
-                panel.endDialogue();
+                TimelineManager.Instance.pauseTimeline(director, panel);
             }
+            // else{
+            //     panel.endDialogue();
+            // }
         }
     }
 
