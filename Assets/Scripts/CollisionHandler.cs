@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {   
     [Tooltip("Explosion particle system effect")]
-    [SerializeField] ParticleSystem explosionVFX;
+    [SerializeField] GameObject explosionVFX;
     [Tooltip("Delay of scene reload after crash")]
     [SerializeField] float loadDelay = 1f;
+    [SerializeField] AudioClip[] AudioSequence;
 
     SpaceshipController movement;
+    SoundManager soundManager;
 
     bool isTransitioning = false;
 
     void Awake()
     {
         movement = GetComponent<SpaceshipController>();
+        soundManager = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
+        Debug.Log(soundManager);
     }
 
     // void OnCollisionEnter(Collision collision)
@@ -38,7 +42,10 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         Invoke("reloadScene", loadDelay);
         movement.enabled = false;
-        explosionVFX.Play();
+        // explosionVFX.Play();
+        GameObject vfx = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = gameObject.transform;
+        soundManager.PlaySound(AudioSequence);
     }
 
     void reloadScene()
