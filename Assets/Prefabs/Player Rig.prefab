@@ -372,10 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9251fa5f22f7ad04c99c1aeff1bbcb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionVFX: {fileID: 1042720408237994732}
-  loadDelay: 2.5
+  explosionVFX: {fileID: 6825655453322904895, guid: 8911e7fc1ae719745aabfa12e423741d, type: 3}
+  loadDelay: 5
   AudioSequence:
-  - {fileID: 8300000, guid: 8d6a1ca9afc054a37adcbab3873891a0, type: 3}
   - {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   - {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   - {fileID: 8300000, guid: f316db0b775e741efab3febd6d4d001d, type: 3}
@@ -767,11 +766,6 @@ PrefabInstance:
 --- !u!4 &1042720408237994730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6825655453322904894, guid: 8911e7fc1ae719745aabfa12e423741d, type: 3}
-  m_PrefabInstance: {fileID: 5819184906254055380}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1042720408237994732 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6825655453322904888, guid: 8911e7fc1ae719745aabfa12e423741d, type: 3}
   m_PrefabInstance: {fileID: 5819184906254055380}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6971880030405063073
