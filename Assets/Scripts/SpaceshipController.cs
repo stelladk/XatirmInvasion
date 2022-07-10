@@ -19,6 +19,9 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float yRange = 3f;
 
     //Rotation Fields
+    [Tooltip("Enable Position and Input Tuning")]
+    [SerializeField] bool enableTuning = true;
+
     [Header("Screen position based tuning")]
     [Tooltip("Rotation on the X axis based on player position")]
     [SerializeField] float positionPitchFactor = -4f;
@@ -65,7 +68,7 @@ public class SpaceshipController : MonoBehaviour
     void Update()
     {
         handleMovement();
-        handleRotation();
+        if(enableTuning) handleRotation();
         handleFiring();
     }
 

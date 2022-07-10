@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     private void destroyEnemy()
     {
-        scoreBoard.increaseScore(points);
+        if(scoreBoard != null) scoreBoard.increaseScore(points);
         GameObject vfx = Instantiate(explosionVFX, transform.position, Quaternion.identity);
         vfx.transform.parent = spawnParent.transform;
         Destroy(gameObject);
