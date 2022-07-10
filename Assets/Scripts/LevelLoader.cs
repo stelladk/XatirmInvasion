@@ -8,14 +8,6 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 2f;
 
-    void Update()
-    {
-        // if(Input.GetMouseButtonDown(0))
-        // {
-        //     LoadNextLevel();
-        // }
-    }
-
     public void LoadNextLevel()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
