@@ -9,6 +9,7 @@ public class DialoguePanel : MonoBehaviour
     public Image background;
     public TMP_Text dialogue;
     public AudioSource speeker;
+    public TMP_Text continue_text;
 
     Image radioImage;
 
@@ -18,6 +19,7 @@ public class DialoguePanel : MonoBehaviour
 
         background.enabled = false;
         radioImage.enabled = false;
+        continue_text.enabled = false;
         dialogue.text = "";
     }
 
@@ -41,7 +43,13 @@ public class DialoguePanel : MonoBehaviour
     {
         background.enabled = false;
         radioImage.enabled = false;
+        continue_text.enabled = false;
         dialogue.text = "";
+    }
+
+    public void showContinue()
+    {
+        continue_text.enabled = true;
     }
 
 }

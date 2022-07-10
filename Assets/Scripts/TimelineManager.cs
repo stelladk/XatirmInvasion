@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.InputSystem;
 
 public class TimelineManager : MonoBehaviour
 {
@@ -15,10 +16,18 @@ public class TimelineManager : MonoBehaviour
     private PlayableDirector director;
     private DialoguePanel panel;
 
+    // PlayerInput playerInput;
+    // private bool resume = false;
+
     void Awake()
     {
         if (Instance == null) {
             Instance = this;
+            // playerInput = new PlayerInput();
+
+            // playerInput.Dialogue.Continue.started += OnDialogueContinue;
+            // playerInput.Dialogue.Continue.canceled += OnDialogueContinue;
+
         }else if (Instance != this) {
             Destroy(gameObject);
         }
@@ -35,7 +44,16 @@ public class TimelineManager : MonoBehaviour
         {
             resumeTimeline();
         }
+        // Debug.Log(resume);
+        // if(resume){
+        //     resumeTimeline();
+        // }
     }
+ 
+    // void OnDialogueContinue(InputAction.CallbackContext context)
+    // {
+    //     resume = context.ReadValueAsButton();
+    // }
 
     public void pauseTimeline(PlayableDirector director, DialoguePanel panel)
 	{

@@ -169,6 +169,61 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""Keybord Arrows"",
+                    ""id"": ""fd038454-b091-40dc-b708-d6008345c8d2"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""5633fa1a-5971-4bd3-91a6-8973466a331e"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e5b66dcf-0375-44d8-9a82-d8a366bf04f1"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a644179d-6ab1-4235-a604-d783f3860b29"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8aff1bf7-7abf-4bf8-96de-c7ded8e9b7c6"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""9482b016-aebe-4d5e-8fae-1cc517160ad7"",
                     ""path"": ""<Keyboard>/space"",
@@ -189,6 +244,67 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Firing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""633b91a2-ecac-4ccb-a578-1af7b037acc7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Firing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15172102-af5b-44e0-b859-bc5dd0b6ae8b"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Firing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""661fa7b0-71e2-40f8-843b-0805393030ac"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""72c991b8-60c0-4f08-86d5-185e55e8991f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6b253f2a-e889-4b46-aec8-f83563bc2ebf"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51eba6d1-beea-46e9-b9ee-92e40d0a0c36"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -199,6 +315,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
         m_Controls_Firing = m_Controls.FindAction("Firing", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_Continue = m_Dialogue.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,9 +414,46 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public ControlsActions @Controls => new ControlsActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_Continue;
+    public struct DialogueActions
+    {
+        private @PlayerInput m_Wrapper;
+        public DialogueActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Continue => m_Wrapper.m_Dialogue_Continue;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @Continue.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnContinue;
+                @Continue.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnContinue;
+                @Continue.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnContinue;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Continue.started += instance.OnContinue;
+                @Continue.performed += instance.OnContinue;
+                @Continue.canceled += instance.OnContinue;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     public interface IControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnFiring(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

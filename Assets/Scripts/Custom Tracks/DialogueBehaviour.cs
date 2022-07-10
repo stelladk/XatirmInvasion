@@ -28,6 +28,7 @@ public class DialogueBehaviour : PlayableBehaviour
             hasPlayed = true;
             if(Application.isPlaying && pauseGame){
                 pauseScheduled = true;
+                panel.showContinue();
             }
             pauseDialogue();
         }
