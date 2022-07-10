@@ -171,7 +171,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Keybord Arrows"",
                     ""id"": ""fd038454-b091-40dc-b708-d6008345c8d2"",
-                    ""path"": ""3DVector"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -180,7 +180,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""5633fa1a-5971-4bd3-91a6-8973466a331e"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -191,7 +191,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""e5b66dcf-0375-44d8-9a82-d8a366bf04f1"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
@@ -202,7 +202,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Left"",
                     ""id"": ""a644179d-6ab1-4235-a604-d783f3860b29"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
@@ -213,7 +213,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Right"",
                     ""id"": ""8aff1bf7-7abf-4bf8-96de-c7ded8e9b7c6"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
