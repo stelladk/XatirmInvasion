@@ -356,6 +356,7 @@ MonoBehaviour:
   moveSpeed: 15
   xRange: 7
   yRange: 3
+  enableTuning: 1
   positionPitchFactor: -4
   positionYawFactor: 4
   controlPitchFactor: -8
@@ -373,13 +374,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 6825655453322904895, guid: 8911e7fc1ae719745aabfa12e423741d, type: 3}
-  loadDelay: 5
+  loadDelay: 4
   AudioSequence:
   - {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   - {fileID: 8300000, guid: 37000056404954bcda981cbd32167c72, type: 3}
   - {fileID: 8300000, guid: f316db0b775e741efab3febd6d4d001d, type: 3}
   - {fileID: 8300000, guid: feeee0c0690724649a9939f7e2564cef, type: 3}
   - {fileID: 8300000, guid: 4270b8f79f41b4797963a9a71abf9f16, type: 3}
+  levelLoader: {fileID: 0}
 --- !u!1 &1042720408879217933
 GameObject:
   m_ObjectHideFlags: 0

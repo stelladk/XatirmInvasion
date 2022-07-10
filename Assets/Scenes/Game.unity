@@ -433,6 +433,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6788966294338323091, guid: 1c702d1bb246d48378cc29f3b735239b, type: 3}
   m_PrefabInstance: {fileID: 547120818}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105776891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1022748501508657523, guid: 5b2843f55d3c147f2aec6cc85a0d450e, type: 3}
+  m_PrefabInstance: {fileID: 55034080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acbf1cc78f484edeb5e539bc153ffa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165533033
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +754,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1830609474, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
+      propertyPath: levelLoader
+      value: 
+      objectReference: {fileID: 1105776891}
     - target: {fileID: 1042720408879217932, guid: c23a177d44330cb42ad459b48edb9dc7, type: 3}
       propertyPath: m_RootOrder
       value: 5

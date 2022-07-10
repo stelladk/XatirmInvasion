@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {   
@@ -10,6 +9,7 @@ public class CollisionHandler : MonoBehaviour
     [Tooltip("Delay of scene reload after crash")]
     [SerializeField] float loadDelay = 1f;
     [SerializeField] AudioClip[] AudioSequence;
+    [SerializeField] LevelLoader levelLoader;
 
     SpaceshipController movement;
     SoundManager soundManager;
@@ -50,7 +50,6 @@ public class CollisionHandler : MonoBehaviour
 
     void reloadScene()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex);
+        levelLoader.ReloadScene();
     }
 }
