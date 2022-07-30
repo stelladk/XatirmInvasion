@@ -36,7 +36,7 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float controlRollFactor = -15f;
 
 
-    PlayerInput playerInput;
+    UserInput userInput;
 
     float xThrow;
     float yThrow;
@@ -46,23 +46,23 @@ public class SpaceshipController : MonoBehaviour
 
     void Awake()
     {
-        playerInput = new PlayerInput();
+        userInput = new UserInput();
 
-        playerInput.Controls.Movement.started += OnMovementInput;
-        playerInput.Controls.Movement.canceled += OnMovementInput;
-        playerInput.Controls.Movement.performed += OnMovementInput;
-        playerInput.Controls.Firing.started += OnFiringInput;
-        playerInput.Controls.Firing.canceled += OnFiringInput;
+        userInput.Controls.Movement.started += OnMovementInput;
+        userInput.Controls.Movement.canceled += OnMovementInput;
+        userInput.Controls.Movement.performed += OnMovementInput;
+        userInput.Controls.Firing.started += OnFiringInput;
+        userInput.Controls.Firing.canceled += OnFiringInput;
     }
 
     void OnEnable()
     {
-        playerInput.Controls.Enable();
+        userInput.Controls.Enable();
     }
 
     void OnDisable()
     {
-        playerInput.Controls.Disable();
+        userInput.Controls.Disable();
     }
 
     void Update()

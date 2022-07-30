@@ -16,21 +16,31 @@ public class TimelineManager : MonoBehaviour
     private PlayableDirector director;
     private DialoguePanel panel;
 
-    // PlayerInput playerInput;
-    // private bool resume = false;
+    UserInput userInput;
+    private bool resume = false;
 
     void Awake()
     {
         if (Instance == null) {
             Instance = this;
-            // playerInput = new PlayerInput();
+            userInput = new UserInput();
 
-            // playerInput.Dialogue.Continue.started += OnDialogueContinue;
-            // playerInput.Dialogue.Continue.canceled += OnDialogueContinue;
+            userInput.Controls.ContinueDialogue.started += OnDialogueContinue;
+            userInput.Controls.ContinueDialogue.canceled += OnDialogueContinue;
 
         }else if (Instance != this) {
             Destroy(gameObject);
         }
+    }
+
+    void OnEnable()
+    {
+        userInput.Controls.Enable();
+    }
+
+    void OnDisable()
+    {
+        userInput.Controls.Disable();
     }
 
     void Update()
@@ -40,20 +50,16 @@ public class TimelineManager : MonoBehaviour
 
     void checkDialogueResume()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
+        if(resume){
             resumeTimeline();
+            resume = false;
         }
-        // Debug.Log(resume);
-        // if(resume){
-        //     resumeTimeline();
-        // }
     }
  
-    // void OnDialogueContinue(InputAction.CallbackContext context)
-    // {
-    //     resume = context.ReadValueAsButton();
-    // }
+    void OnDialogueContinue(InputAction.CallbackContext context)
+    {
+        resume = context.ReadValueAsButton();
+    }
 
     public void pauseTimeline(PlayableDirector director, DialoguePanel panel)
 	{

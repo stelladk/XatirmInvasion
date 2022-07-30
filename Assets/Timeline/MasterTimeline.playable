@@ -3751,7 +3751,7 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   speechText: Shoot them before they shoot us! The lasers will do just fine! Hold
-    spacebar to use them.
+    spacebar / R2 to use them.
   pauseGame: 1
   sound: {fileID: 8300000, guid: 9984d2192c35b4a5f901ede2c1037fb6, type: 3}
   volume: 1
@@ -4339,7 +4339,7 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   speechText: "You need to drive the spacecraft. Careful, you might crash! \nUse
-    WASD to move around."
+    WASD / Left Stick to move around."
   pauseGame: 1
   sound: {fileID: 8300000, guid: 95823bfd888a649e1bf39250a469fc42, type: 3}
   volume: 1
