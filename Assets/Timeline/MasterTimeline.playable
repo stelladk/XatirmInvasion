@@ -3750,7 +3750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1caf1ab18e84d02ab37756a8378d0b, type: 3}
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
-  speechText: Shoot them before they shoot us! The lasers will do just fine! Press
+  speechText: Shoot them before they shoot us! The lasers will do just fine! Hold
     spacebar to use them.
   pauseGame: 1
   sound: {fileID: 8300000, guid: 9984d2192c35b4a5f901ede2c1037fb6, type: 3}

@@ -7,17 +7,26 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "e4d84f2c-188a-4880-81ac-0356ea161f1f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Firing",
                     "type": "Button",
                     "id": "553a0b7e-3cb2-4cf1-8208-e8cfdd8661c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ContinueDialogue",
+                    "type": "Button",
+                    "id": "2e6ded02-8076-4dd7-8303-309a9036e63b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -244,6 +253,28 @@
                     "action": "Firing",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22e51a52-bcd3-44e8-b484-e1596b017693",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a933f38-f9f4-436a-93b5-befd755262dc",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -253,7 +284,7 @@
             "actions": [
                 {
                     "name": "Continue",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "72c991b8-60c0-4f08-86d5-185e55e8991f",
                     "expectedControlType": "Button",
                     "processors": "",

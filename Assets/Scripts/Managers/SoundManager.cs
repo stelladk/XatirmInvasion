@@ -11,7 +11,6 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         clipQueue = new Queue<AudioClip>();
-        Debug.Log(audioSource);
     }
 
     void Update()

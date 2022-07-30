@@ -20,7 +20,6 @@ public class CollisionHandler : MonoBehaviour
     {
         movement = GetComponent<SpaceshipController>();
         soundManager = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
-        Debug.Log(soundManager);
     }
 
     // void OnCollisionEnter(Collision collision)

@@ -29,17 +29,26 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""e4d84f2c-188a-4880-81ac-0356ea161f1f"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Firing"",
                     ""type"": ""Button"",
                     ""id"": ""553a0b7e-3cb2-4cf1-8208-e8cfdd8661c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ContinueDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e6ded02-8076-4dd7-8303-309a9036e63b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -266,6 +275,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Firing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22e51a52-bcd3-44e8-b484-e1596b017693"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a933f38-f9f4-436a-93b5-befd755262dc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -275,7 +306,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Continue"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""72c991b8-60c0-4f08-86d5-185e55e8991f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -315,6 +346,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
         m_Controls_Firing = m_Controls.FindAction("Firing", throwIfNotFound: true);
+        m_Controls_ContinueDialogue = m_Controls.FindAction("ContinueDialogue", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Continue = m_Dialogue.FindAction("Continue", throwIfNotFound: true);
@@ -379,12 +411,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IControlsActions m_ControlsActionsCallbackInterface;
     private readonly InputAction m_Controls_Movement;
     private readonly InputAction m_Controls_Firing;
+    private readonly InputAction m_Controls_ContinueDialogue;
     public struct ControlsActions
     {
         private @PlayerInput m_Wrapper;
         public ControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Controls_Movement;
         public InputAction @Firing => m_Wrapper.m_Controls_Firing;
+        public InputAction @ContinueDialogue => m_Wrapper.m_Controls_ContinueDialogue;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -400,6 +434,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Firing.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
                 @Firing.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
                 @Firing.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnFiring;
+                @ContinueDialogue.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnContinueDialogue;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -410,6 +447,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Firing.started += instance.OnFiring;
                 @Firing.performed += instance.OnFiring;
                 @Firing.canceled += instance.OnFiring;
+                @ContinueDialogue.started += instance.OnContinueDialogue;
+                @ContinueDialogue.performed += instance.OnContinueDialogue;
+                @ContinueDialogue.canceled += instance.OnContinueDialogue;
             }
         }
     }
@@ -451,6 +491,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnFiring(InputAction.CallbackContext context);
+        void OnContinueDialogue(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
