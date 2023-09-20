@@ -5,7 +5,7 @@ From
 
 ## Gameplay
 
-<div style="text-align:center">
+<div align="center">
 
 <a href="https://stelladk.itch.io/xatirm-invasion">
 <img src="screenshots/iframe.png" alt="Xatirm Invasion by stelladk" width="550">
